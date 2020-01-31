@@ -1,0 +1,53 @@
+Exercícios artistas
+
+
+--Alteração adicionar uma coluna 
+ALTER TABLE Artistas
+ADD DataNascimento DATE;
+
+
+--Alteraçao modificar coluna 
+ALTER TABLE Artistas
+ALTER COLUMN NomeArtista CHAR;
+
+--Alterar coluna apagar 
+ALTER TABLE Artistas
+DROP COLUMN NomeArtista;
+ 
+--APAGAR TABELA
+DROP TABLE Artistas;
+
+-- APAGAR BANCO
+DROP DATABASE EstiloMusical;
+
+------------------------
+  -- Operações
+	   SELECT * FROM Albuns WHERE IdAlbum = 1;
+	   SELECT * FROM Albuns WHERE IdAlbum > 1;
+
+	   -- OR OU 
+	   SELECT Nome, QtdMinutos FROM Albuns
+	   WHERE (DataLancamento IS NULL) or (Visualizacao IS NULL);
+
+	   --Filtro de texto nas tabelas 
+	   SELECT IdArtista, Nome FROM Artistas 
+	   WHERE Nome LIKE 'Pitty%'; --  começo da frase
+
+	   SELECT IdArtista, Nome FROM Artistas 
+	   WHERE Nome LIKE '%Pitty%'; --  meio da frase 
+
+	   SELECT IdArtista, Nome FROM Artistas 
+	   WHERE Nome LIKE '%Pitty'; -- final da frase  
+
+
+	   -- Ordenação Crescente
+	   SELECT IdAlbum, Nome , QtdMinutos FROM Albuns
+	   ORDER BY QtdMinutos;
+
+	    -- Ordenação Decrescente
+	   SELECT IdAlbum, Nome , QtdMinutos FROM Albuns
+	   ORDER BY QtdMinutos DESC;
+
+
+	-- Count 
+		SELECT COUNT (IdAlbum) FROM Albuns;
