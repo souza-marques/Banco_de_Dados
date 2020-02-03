@@ -72,6 +72,8 @@ VALUES ('Cores e Valores','20-02-1990',50,3500,1,1),
 	   ('Misturadin','10-12-2017',40,10000,4,4),
 	   ('Sensações','30-10-2014',90,4670,5,5);
 
+	   
+
 	   --Alterar Nome de um Artista
 	   UPDATE Artistas 
 	   SET Nome = 'Martinho da Vila'
@@ -92,6 +94,7 @@ VALUES ('Cores e Valores','20-02-1990',50,3500,1,1),
 	   WHERE IdAlbum = 2;
 
 
+	  
 	  -- Selecionar os albuns do mesmo artista
 	  SELECT  * FROM Albuns WHERE IdArtista = 1;
 
@@ -105,5 +108,24 @@ VALUES ('Cores e Valores','20-02-1990',50,3500,1,1),
 	   SELECT Nome, IdArtista,DataLancamento FROM Albuns
 	   ORDER BY DataLancamento DESC;
 
+	     -- COM INER JOIN 
+	  SELECT Artistas.Nome, Albuns.Nome,Albuns.DataLancamento FROM Artistas
+	  INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdArtista
+	  WHERE DataLancamento = '10-12-2017';
+
+	    --COM INNER JOIN, mesclar informações
+		SELECT * FROM Artistas
+		INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdArtista
+
+
+	   -- SELECIONAR ALBUNS E ARTISTAS E ORDENAR POR DATA DE LANCAMENTO COM INNER JOIN
+	   SELECT * FROM Albuns INNER JOIN Artistas ON Albuns.IdArtista = Artistas.IdArtista
+	   ORDER BY DataLancamento DESC;
+
+	   --SELECIONAR OS ARTISTAS DO MESMO ESTILO MUSICAL 
+	   SELECT Artistas.Nome, Estilos.Nome FROM Artistas
+	   INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdArtista 
+	   INNER JOIN Estilos ON Estilos.IdEstilo = Albuns.IdEstilo WHERE Estilos.IdEstilo = 3;
+	   
 	   
 
